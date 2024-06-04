@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="product_styles_view_order_inherit" model="ir.ui.view">
+            <field name="name">product.template.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='detailed_type']" position="after">
+                    <field name="styles"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="product_styles_view_order_line_inherit" model="ir.ui.view">
+            <field name="name">order.line.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='order_line']//tree/field[@name='price_unit']" position="after">
+                        <field name="superduper"/>
+                    </xpath>
+                    <xpath expr="//field[@name='payment_term_id']" position="after">
+                        <field name="customer_rating"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <record id="view_res_partner_form_inherit" model="ir.ui.view">
+            <field name="name">res.partner.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='category_id']" position="after">
+                    <field name="customer_rank" widget="priority"/>
+                </xpath>
+                <xpath expr="//field[@name='property_product_pricelist']" position="after">
+
+                    <field name="filter_products_so"/>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="product_styles_tree" model="ir.ui.view">
+            <field name="name">product.style.tree</field>
+            <field name="model">product.style</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_product_style_search" model="ir.ui.view">
+            <field name="name">product.style.search</field>
+            <field name="model">product.style</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="code"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="product_style_action" model="ir.actions.act_window">
+            <field name="name">products</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.style</field>
+            <field name="view_mode">tree,search</field>
+        </record>
+
+        <menuitem id="product_style_menu" name="Product styles" action="product_style_action"
+                  parent="sale.product_menu_catalog"/>
+
+
+
+
+    </data>
+
+</odoo>

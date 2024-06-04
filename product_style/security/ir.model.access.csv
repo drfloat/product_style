@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+product_style.access_product_style,access_product_style,product_style.model_product_style,,1,1,1,1
+product_style.access_purchase_order,access_purchase_order,product_style.model_purchase_order,,1,1,1,1
+product_style.access_sale_order,access_sale_order,product_style.model_sale_order,,1,1,1,1
+product_style.access_salesperson_report_wizard,access_salesperson_report_wizard,product_style.model_salesperson_report_wizard,,1,1,1,1

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_invoice_document_inherit" inherit_id="account.report_invoice_document">
+
+        <xpath expr="//div[@name='due_date']" position="after">
+            <div class="col-auto col-3 mw-100 mb-2">
+                <strong>Sales Person:</strong>
+                <br/>
+                <span t-field="o.user_id.name"/>
+            </div>
+            <div class="col-auto col-3 mw-100 mb-2">
+                <strong>Sales Team:</strong>
+                <br/>
+                <span t-field="o.team_id.name"/>
+            </div>
+<!--            <div>-->
+<!--                <strong>Sales Team:</strong> <span t-field="o.team_id.name"/>-->
+<!--            </div>-->
+        </xpath>
+
+<!--        <xpath expr="//table[@class='table table-condensed']//tbody" position="after">-->
+<!--            <tr>-->
+<!--                <td colspan="6">-->
+<!--                    <strong>Total Items:</strong> <span t-esc="len(o.invoice_line_ids)"/>-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--        </xpath>-->
+    </template>
+</odoo>
+

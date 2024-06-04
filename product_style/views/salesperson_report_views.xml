@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_salesperson_report_wizard" model="ir.ui.view">
+        <field name="name">salesperson.report.wizard.form</field>
+        <field name="model">salesperson.report.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="user_ids"/>
+                </group>
+                <footer>
+                    <button string="Show Orders" type="object" name="show_orders" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_salesperson_report" model="ir.actions.act_window">
+        <field name="name">Quotation</field>
+        <field name="res_model">salesperson.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_salesperson_report" name="Salesperson Report" parent="sale.menu_sale_report" action="action_salesperson_report"/>
+</odoo>
